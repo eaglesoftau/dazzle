@@ -6,7 +6,7 @@ function setup() {
     rows: [{
       columns: [{
         className: 'col-md-4 col-sm-6 col-xs-6',
-        widgets: [{ key: 'HelloWorld' }],
+        widgets: [{ key: 'HelloWorld', data: { test: "ok" } }],
       }, {
         className: 'col-md-4 col-sm-6 col-xs-6',
         widgets: [],
@@ -22,13 +22,13 @@ describe('Util.addWidget()', () => {
       rows: [{
         columns: [{
           className: 'col-md-4 col-sm-6 col-xs-6',
-          widgets: [{ key: 'HelloWorld' }, { key: 'NewWidget' }],
+          widgets: [{ key: 'HelloWorld', data: { test: "ok" } }, { key: 'NewWidget', data: { test2: "ok" } }],
         }, {
           className: 'col-md-4 col-sm-6 col-xs-6',
           widgets: [],
         }],
       }],
-    }).to.eql(addWidget(layout, 0, 0, 'NewWidget'));
+    }).to.eql(addWidget(layout, 0, 0, 'NewWidget', { test2: "ok" }));
   });
 });
 
